@@ -1,0 +1,118 @@
+//COLORS
+$primary-color: #00509d;
+$primary-color--medium: #003f88;
+$primary-color--bold: #00296b;
+$secodary-color: #ffd500;
+$secodary-color--medium: #fdc500;
+$white: #fff;
+$black: #000;
+
+//BORDER
+$border-radius--base: 10px;
+$border-radius--xs: 8px;
+
+//FONTS
+$font-family: "Roboto Mono, sans-serif";
+$font-size--xs: 0.8125rem; /*13px*/
+$font-size--base: 1rem; /*16px*/
+$font-size--lg: 1.125rem; /*18px*/
+$letter-spacing: 0.16px;
+
+//FONT FACES
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Light.ttf") format("truetype");
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-LightItalic.ttf") format("truetype");
+  font-weight: lighter;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-Thin.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family;
+  src: url("../assets/fonts/RobotoMono-ThinItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+//BREAKPOINTS
+$breakpoints: (
+  xs: 0,
+  sm: 375px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+//spacing
+$spaces: (4, 8, 16, 24, 32, 40, 48);
+
+$directions: (top, bottom);

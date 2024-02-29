@@ -1,0 +1,14 @@
+@each $breakpoint, $value in $breakpoints {
+  @media screen and (min-width: $value) {
+    @each $space in $spaces {
+      @each $direction in $directions {
+        .padding-#{$direction}-#{$space}-#{$breakpoint} {
+          padding-#{$direction}: $space;
+        }
+        .margin-#{$direction}-#{$space}-#{$breakpoint} {
+          margin-#{$direction}: $space;
+        }
+      }
+    }
+  }
+}
