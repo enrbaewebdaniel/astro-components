@@ -1,0 +1,17 @@
+---
+interface Props {
+  type: "primary" | "secondary";
+  fill?: boolean;
+}
+const { type, fill } = Astro.props;
+---
+
+<button class:list={["btn", `btn--${type}`, { "btn--filled": fill }]}>
+  <slot />
+</button>
+
+<style lang="scss">
+  .btn {
+    
+  }
+</style>
