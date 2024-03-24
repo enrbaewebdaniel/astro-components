@@ -13,7 +13,6 @@ function traverseDirectory(dir) {
             traverseDirectory(filePath);
         } else if (path.extname(filePath) === '.html') {
             // If it's an HTML file, do something with it
-            console.log(filePath);
             // Here you can perform any operation you want with the HTML file
             cleanHTML(filePath);
         }
@@ -23,28 +22,33 @@ function traverseDirectory(dir) {
 function getDocumentContent(filePath) {
     const htmlContent = fs.readFileSync(filePath, 'utf8'); // Lee el contenido del archivo HTML
     const dom = new JSDOM(htmlContent); // Crea un nuevo DOM utilizando jsdom
-    const document = dom.window.document; // Accede al documento HTML
 
-    return document;
+    return dom; // Accede al documento HTML;
 }
 
 //Funtion to clean Astro atributes from HTML file
 function cleanHTML(filePath) {
-    const document = getDocumentContent(filePath);
+    const dom = getDocumentContent(filePath);
+    const document = dom.window.document;
+    const astroElements = document.querySelectorAll('body *');
 
-    const astroElements = document.querySelectorAll('');
     astroElements.forEach(astroEl => {
-
+        const listAttributes = astroEl.getAttributeNames();
+        //Encuentra los atributos que contengan la cadena indicada
+        listAttributes.forEach(name => {
+            if (name.includes("data-astro")) {
+                astroEl.removeAttribute(name);
+            }
+        });
     });
 
-
+    //Guardas los cambios realizados
+    fs.writeFileSync(filePath, dom.serialize());
 }
-
-
-
 
 // Replace 'folderPath' with the path to the directory you want to traverse
 const folderPath = './dist';
 
 // Update this with your folder path
 traverseDirectory(folderPath);
+console.log("Etiquetas limpiadas!")
