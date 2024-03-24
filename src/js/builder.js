@@ -15,6 +15,7 @@ function traverseDirectory(dir) {
             // If it's an HTML file, do something with it
             // Here you can perform any operation you want with the HTML file
             cleanHTML(filePath);
+            changeStyleSheet(filePath);
         }
     });
 }
@@ -44,11 +45,26 @@ function cleanHTML(filePath) {
 
     //Guardas los cambios realizados
     fs.writeFileSync(filePath, dom.serialize());
+    console.log("Etiquetas limpiadas!")
 }
+
+//Cambiar la stylessheet por la generada por sass
+function changeStyleSheet(filePath) {
+    const dom = getDocumentContent(filePath);
+    const document = dom.window.document;
+
+    const link = document.querySelector("[rel='stylesheet']");
+
+    link.href = "./styles/styles.css";
+
+    fs.writeFileSync(filePath, dom.serialize());
+    console.log("Estilos generados!")
+}
+
 
 // Replace 'folderPath' with the path to the directory you want to traverse
 const folderPath = './dist';
 
 // Update this with your folder path
 traverseDirectory(folderPath);
-console.log("Etiquetas limpiadas!")
+
