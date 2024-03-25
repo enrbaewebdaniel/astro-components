@@ -1,12 +1,17 @@
 ---
 interface Props {
   type: "primary" | "secondary";
+  size?: "big" | "small";
   fill?: boolean;
+  ariaLabel?: string;
 }
-const { type, fill } = Astro.props;
+const { type, fill, size, ariaLabel } = Astro.props;
 ---
 
-<button class:list={["btn", `btn--${type}`, { "btn--filled": fill }]}>
+<button
+  class:list={["btn", `btn--${type}`, { "btn--filled": fill }, `btn--${size}`]}
+  aria-label={ariaLabel}
+>
   <slot />
 </button>
 
